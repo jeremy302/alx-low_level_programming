@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include <stdio.h>
 
 /**
@@ -9,8 +8,9 @@
  */
 int main(void)
 {
-	char err_msg[] =
-		"and that piece of art is useful\" - Dora Korpar, 2015-10-19";
-	fwrite(err_msg, 1, sizeof(err_msg), stderr);
+	fputs(
+		"and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 
+		stderr
+		);
 	return (1);
 }
