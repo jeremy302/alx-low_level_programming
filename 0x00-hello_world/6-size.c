@@ -1,6 +1,12 @@
 #include <stdio.h>
 
-int main()
+/**
+ * main - starting point of the program
+ *
+ * Description: print the sizes of various data types
+ * Return: 0 if program executes properly, else a non-zero number
+ */
+int main(void)
 {
 	printf(
 		"Size of a char: %d byte(s)\n"
@@ -14,5 +20,5 @@ int main()
 		sizeof(long long int),
 		sizeof(float)
 		);
-	return 0;
+	return (0);
 }
