@@ -4,14 +4,15 @@
  * main - starting point of the program
  *
  * Description: prints all hexadecimal digits
- * Return: 0 if program executes properly, else a non-zero number
+ * Return: 0 if program executes properly, else a non-zero numbers
  */
 int main(void)
 {
+	char i;
 
-	for (char i = '0'; i <= '9'; i++)
+	for (i = '0'; i <= '9'; i++)
 		putchar(i);
-	for (char i = 'a'; i <= 'f'; i++)
+	for (i = 'a'; i <= 'f'; i++)
 		putchar(i);
 	putchar('\n');
 

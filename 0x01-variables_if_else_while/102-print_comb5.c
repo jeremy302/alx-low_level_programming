@@ -9,15 +9,18 @@
  */
 int main(void)
 {
+	int i, j, i_quotient, j_quotient, i_remainder, j_remainder;
 
-	for (int i = 0; i <= 99; i++)
+	for (i = 0; i <= 99; i++)
 	{
-		for (int j = 0; j <= 99; j++)
+		for (j = 0; j <= 99; j++)
 		{
 			if (j > i)
 			{
-				int i_quotient = i / 10, i_remainder = i % 10;
-				int j_quotient = j / 10, j_remainder = j % 10;
+				i_quotient = i / 10;
+				i_remainder = i % 10;
+				j_quotient = j / 10;
+				j_remainder = j % 10;
 
 				if (!(i == 0 && j == 1))
 				{
