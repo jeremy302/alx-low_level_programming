@@ -22,5 +22,5 @@ int main(void)
 	else
 		printf("%d is zero\n", n);
 
-	return (1);
+	return (0);
 }
