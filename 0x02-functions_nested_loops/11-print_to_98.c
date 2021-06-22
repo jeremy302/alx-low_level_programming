@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <stdio.h>
 #include "holberton.h"
 
 void putstr(char *str);
@@ -12,13 +12,9 @@ extern char* itoa(int n, char *str, int radix);
  */
 void print_to_98(int n)
 {
-	char i_str[20];
-
 	for (; n != 98; n += n > 98 ? -1 : 1)
 	{
-		itoa(n, i_str, 10);
-		putstr(i_str);
-		putstr(", ");
+		printf("%d, ", n);
 	}
 	putstr("98\n");
 }
