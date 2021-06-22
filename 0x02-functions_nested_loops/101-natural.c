@@ -1,18 +1,18 @@
 #include <stdlib.h>
+#include "holberton.h"
 
-extern int _putchar(char);
 void putstr(char *str);
 
 int main(void)
 {
-    int i, sum;
-    char sum_str[10];
+	int i, sum;
+	char sum_str[10];
 
-	for(i=0; i < 1024; i++)
-    {
-        if (i % 3 == 0 || i % 5 == 0)
-            sum += i;
-    }
+	for (i=0; i < 1024; i++)
+	{
+		if (i % 3 == 0 || i % 5 == 0)
+			sum += i;
+	}
 	itoa(sum, sum_str, 10);
 	putstr(sum_str);
 
@@ -27,6 +27,6 @@ int main(void)
  */
 void putstr(char *str)
 {
-	while(*str != '\0')
+	while (*str != '\0')
 		_putchar(*str++);
 }
