@@ -8,6 +8,7 @@
  */
 int print_last_digit(int x)
 {
+	x = x < 0? 0 - x: x;
 	int last_digit = x % 10;
 
 	_putchar(last_digit + '0');
