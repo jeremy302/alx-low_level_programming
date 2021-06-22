@@ -10,7 +10,7 @@ int main(void)
 {
 	char *msg = "Holberton\n";
 
-	while (msg != '\0')
+	while (*msg != '\0')
 		_putchar(*msg++);
 
 	return (0);
