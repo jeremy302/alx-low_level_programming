@@ -18,8 +18,13 @@ int main(void)
 	for (i = 1; i <= 50; i++)
 	{
 		print_int64(fib(i));
-		_putchar('\n');
+		if (i != 50)
+		{
+			_putchar(',');
+			_putchar(' ');
+		}
 	}
+	_putchar('\n');
 
 	return (0);
 }
