@@ -3,8 +3,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
-void putstr(char *str);
 int64_t fib(int x);
+void print_int64(int64_t v);
 
 /**
  * main - starting point of the program
@@ -17,7 +17,8 @@ int main(void)
 
 	for (i = 1; i <= 50; i++)
 	{
-		printf("%ju\n", fib(i));
+		print_int64(fib(i));
+		_putchar('\n');
 	}
 
 	return (0);
@@ -45,4 +46,22 @@ int64_t fib(int x)
 	return (current);
 }
 
+void print_int64(int64_t v)
+{
+	int64_t divisor = 1000000000;
+	int64_t quotient = v;
+	char significant_zero = 0;
 
+	divisor = divisor * 10000;
+	for (; divisor != 0; divisor /= 10)
+	{
+		char digit = quotient / divisor;
+
+		if (digit == 0 && !significant_zero)
+			continue;
+		significant_zero = 1;
+
+		_putchar(digit + '0');
+		quotient = quotient % divisor;
+	}
+}
