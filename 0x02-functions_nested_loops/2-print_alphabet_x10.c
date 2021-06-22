@@ -1,5 +1,4 @@
 
-extern int _putchar(char);
 
 /**
  * print_alphabet_x10 - prints the lowercase alphabet 10 times
