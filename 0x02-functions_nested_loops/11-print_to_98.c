@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 
-extern char* itoa(int n, char *str, int radix);
+extern char *itoa(int n, char *str, int radix);
 
 /**
  * print_to_98 - prints from n to 98
