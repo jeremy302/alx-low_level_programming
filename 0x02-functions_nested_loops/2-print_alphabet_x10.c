@@ -1,4 +1,4 @@
-#include "holberton.c"
+#include "holberton.h"
 
 /**
  * print_alphabet_x10 - prints the lowercase alphabet 10 times
