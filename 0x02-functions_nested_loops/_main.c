@@ -20,6 +20,7 @@ int main(void)
 
     //printf("%c is lower: %d\n",'b',_islower('b')); //3-islower
     //printf("%c is lower: %d\n",'A',_islower('A')); // 3-islower
-	times_table();
+	print_to_98(10);
+	print_to_98(200);
     return (0);
 }

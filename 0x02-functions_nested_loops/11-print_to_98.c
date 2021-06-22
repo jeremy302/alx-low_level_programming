@@ -1,6 +1,4 @@
 #include <stdlib.h>
-
-extern int _putchar(char);
 #include "holberton.h"
 
 void putstr(char *str);
@@ -13,16 +11,15 @@ void putstr(char *str);
  */
 void print_to_98(int n)
 {
-	int i;
 	char i_str[20];
 
-	for (; n != 98; n += i > 98 ? -1 : 1)
+	for (; n != 98; n += n > 98 ? -1 : 1)
 	{
-		itoa(i, i_str, 10);
+		itoa(n, i_str, 10);
 		putstr(i_str);
 		putstr(", ");
 	}
-	putstr("98");
+	putstr("98\n");
 }
 
 /**
