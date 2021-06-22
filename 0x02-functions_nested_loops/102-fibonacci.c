@@ -13,7 +13,7 @@ int64_t fib(int x);
  */
 int main(void)
 {
-	int i
+	int i;
 	char fib_str[20];
 
 	for (i = 1; i <= 50; i++)
