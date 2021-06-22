@@ -1,27 +1,34 @@
 #include "holberton.h"
 
+/**
+ * print_times_table - prints the n times table
+ * @n: limit
+ *
+ * Return: void
+ */
 void print_times_table(int n)
 {
 	int i, j, product,
-		product_first_digit, product_second_digit, product_last_digit;
+		first_digit, second_digit, last_digit;
 
-	for(i = 0; i <= n; i++)
+	if (n > 15 || n < 0)
+		return;
+	for (i = 0; i <= n; i++)
 	{
-		for(j = 0; j <= n; j++)
+		for (j = 0; j <= n; j++)
 		{
 			product = i * j;
-			product_first_digit = product / 100;
-			product_second_digit = (product / 10) % 10;
-			product_last_digit = product % 10;
+			first_digit = product / 100;
+			second_digit = (product / 10) % 10;
+			last_digit = product % 10;
 
-			if(!(i == 0 && j == 0))
+			if (j != 0)
 			{
-				_putchar(',');
-				_putchar(' ');
+				_putchar(!first_digit ? ' ' : first_digit + '0');
+				_putchar(!first_digit && !second_digit ?
+					' ' : second_digit + '0');
 			}
-			_putchar(product_first_digit == 0? ' ' : product_first_digit + '0');
-			_putchar(product_second_digit == 0? ' ' : product_second_digit + '0');
-			_putchar(product_last_digit + '0');
+			_putchar(last_digit + '0');
 
 			if (j == n)
 				_putchar('\n');
