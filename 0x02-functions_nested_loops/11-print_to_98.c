@@ -1,6 +1,8 @@
 #include <stdlib.h>
 
 extern int _putchar(char);
+#include "holberton.h"
+
 void putstr(char *str);
 
 /**

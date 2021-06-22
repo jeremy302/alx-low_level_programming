@@ -1,5 +1,4 @@
-
-extern int _putchar(char);
+#include "holberton.h"
 
 /**
  * jack_bauer - prints all minutes in 24 hours
