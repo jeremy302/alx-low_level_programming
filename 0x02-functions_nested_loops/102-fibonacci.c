@@ -6,11 +6,17 @@
 void putstr(char *str);
 int64_t fib(int x);
 
+/**
+ * main - starting point of the program
+ *
+ * Return: 0 if program executed properly, else 1.
+ */
 int main(void)
 {
+	int i
 	char fib_str[20];
 
-	for (int i = 1; i <= 50; i++)
+	for (i = 1; i <= 50; i++)
 	{
 		printf("%llu\n", fib(i));
 	}
@@ -18,6 +24,12 @@ int main(void)
 	return (0);
 }
 
+/**
+ * fib - starting point of the program
+ * @x: parameter
+ *
+ * Return: 0 if program executed properly, else 1.
+ */
 int64_t fib(int x)
 {
 	int i;

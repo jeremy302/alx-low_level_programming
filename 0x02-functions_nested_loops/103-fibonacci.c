@@ -1,19 +1,19 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "holberton.h"
 
-extern int _putchar(char);
-void putstr(char *str);
 unsigned long long fib(int x);
 
+/**
+ * main - starting point of the program
+ *
+ * Return: 0 if program executed properly, else 1.
+ */
 int main(void)
 {
-	char fib_str[20];
+	long int sum, previous = 1, current = 2, accumulated;
 
-	unsigned long long previous = 1, current = 2, accumulated;
-
-
-	putstr("1\n2\n");
-	unsigned long long sum = 2;
+	printf("1\n2\n");
 	while (current <= 4000000)
 	{
 
@@ -21,30 +21,14 @@ int main(void)
 		previous = current;
 		current = accumulated;
 
-		if (current%2==0)
+		if (current % 2 == 0)
 		{
 			sum += current;
 		}
 
-		char* sum_str[20];
-
-		lltoa(sum,sum_str,10);
-		putstr(sum_str);
-		putstr("\n");
+		printf("%ld\n", sum);
 	}
-
 
 	return (0);
 }
 
-/**
- * putstr - writes a char array to stdout till it sees the null terminator: \0
- * @str: Pointer to the first array element
- *
- * Return: void
- */
-void putstr(char *str)
-{
-	while (*str != '\0')
-		putchar(*str++);
-}
