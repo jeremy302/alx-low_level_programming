@@ -2,6 +2,7 @@
 #include "holberton.h"
 
 void putstr(char *str);
+char* itoa(int n, char *str, int radix);
 
 /**
  * print_to_98 - prints from n to 98
