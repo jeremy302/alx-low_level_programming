@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "holberton.h"
 
-unsigned long long fib(int x);
-
 /**
  * main - starting point of the program
  *
