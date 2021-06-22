@@ -24,14 +24,14 @@ int64_t fib(int x)
 	int64_t previous = 1, current = 2, accumulated;
 
 	if (x <= 2)
-		return x;
+		return (x);
 	for (i = 3; i <= x; i++)
 	{
 		accumulated = previous + current;
 		previous = current;
 		current = accumulated;
 	}
-	return current;
+	return (current);
 }
 
 
