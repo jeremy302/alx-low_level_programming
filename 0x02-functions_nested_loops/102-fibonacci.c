@@ -14,11 +14,10 @@ int64_t fib(int x);
 int main(void)
 {
 	int i;
-	char fib_str[20];
 
 	for (i = 1; i <= 50; i++)
 	{
-		printf("%llu\n", fib(i));
+		printf("%ju\n", fib(i));
 	}
 
 	return (0);

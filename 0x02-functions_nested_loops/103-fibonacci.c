@@ -9,9 +9,8 @@
  */
 int main(void)
 {
-	long int sum, previous = 1, current = 2, accumulated;
+	long int sum = 2, previous = 1, current = 2, accumulated;
 
-	printf("1\n2\n");
 	while (current <= 4000000)
 	{
 
@@ -23,9 +22,8 @@ int main(void)
 		{
 			sum += current;
 		}
-
-		printf("%ld\n", sum);
 	}
+	printf("%ld\n", sum);
 
 	return (0);
 }
