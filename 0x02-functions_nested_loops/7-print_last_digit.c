@@ -1,5 +1,4 @@
-
-extern int _putchar(char);
+#include "holberton.h"
 
 /**
  * print_last_digit - returns the absolute value of x

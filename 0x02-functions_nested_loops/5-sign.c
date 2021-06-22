@@ -1,3 +1,4 @@
+#include "holberton.h"
 
 /**
  * print_sign - checks the sign of n
@@ -7,5 +8,19 @@
  */
 int print_sign(int n)
 {
-	return (n < 0 ? -1 : n > 0);
+	if (n < 0)
+	{
+		_putchar('-');
+		return (0);
+	}
+	else if (n > 0)
+	{
+		_putchar('+');
+		return (1);
+	}
+	else
+	{
+		_putchar('0');
+		return (0);
+	}
 }
