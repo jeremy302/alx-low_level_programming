@@ -4,4 +4,4 @@
 
 0. **0-preprocessor** - uses the -E option to make gcc only preprocess the source code
 
-1. **1-compiler** - 
+1. **1-compiler** -  uses the -c option to make 
