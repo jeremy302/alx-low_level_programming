@@ -3,8 +3,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int64_t fib(int x);
-void print_int64(int64_t v);
+uint64_t fib(int x);
+void print_int64(uint64_t v);
 
 /**
  * main - starting point of the program
@@ -35,10 +35,10 @@ int main(void)
  *
  * Return: 0 if program executed properly, else 1.
  */
-int64_t fib(int x)
+uint64_t fib(int x)
 {
 	int i;
-	int64_t previous = 1, current = 2, accumulated;
+	uint64_t previous = 1, current = 2, accumulated;
 
 	if (x <= 2)
 		return (x);
@@ -51,10 +51,16 @@ int64_t fib(int x)
 	return (current);
 }
 
-void print_int64(int64_t v)
+/**
+ * print_int64 - prints a 64 bit integer
+ * @v: parameter
+ *
+ * Return: void
+ */
+void print_int64(uint64_t v)
 {
-	int64_t divisor = 1000000000;
-	int64_t quotient = v;
+	uint64_t divisor = 1000000000;
+	uint64_t quotient = v;
 	char significant_zero = 0;
 
 	divisor = divisor * 10000;
