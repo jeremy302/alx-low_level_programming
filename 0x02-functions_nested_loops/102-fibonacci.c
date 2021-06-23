@@ -6,6 +6,8 @@
 uint64_t fib(int x);
 void print_int64(uint64_t v);
 
+typedef uint64_t uint64;
+
 /**
  * main - starting point of the program
  *
@@ -35,7 +37,7 @@ int main(void)
  *
  * Return: 0 if program executed properly, else 1.
  */
-uint64_t fib(int x)
+uint64 fib(int x)
 {
 	int i;
 	uint64_t previous = 1, current = 2, accumulated;
@@ -52,15 +54,15 @@ uint64_t fib(int x)
 }
 
 /**
- * print_int64 - prints a 64 bit integer
+ * print_uint64 - prints a 64 bit integer
  * @v: parameter
  *
  * Return: void
  */
-void print_int64(uint64_t v)
+void print_uint64(uint64 v)
 {
-	uint64_t divisor = 1000000000;
-	uint64_t quotient = v;
+	uint64 divisor = 1000000000;
+	uint64 quotient = v;
 	char significant_zero = 0;
 
 	divisor = divisor * 10000;

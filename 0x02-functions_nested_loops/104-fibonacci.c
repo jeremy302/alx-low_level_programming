@@ -1,62 +1,88 @@
-#include <stdlib.h>
 #include <inttypes.h>
+#include "holberton.h"
+#include <stdio.h>
 
+typedef uint64_t uint64;
+void print_uint64(uint64 v, uint64 radix, char prepend_zeroes);
 
-extern int _putchar(char);
-void putstr(char *str);
-typedef __int128 uint128;
-
+/**
+ * main - starting point of the program
+ *
+ * Return: 0 if program executed properly, else 1.
+ */
 int main(void)
 {
+	int i;
+	uint64 carried_previous = 0, previous = 1;
+	uint64 carried_current = 0, current = 2;
+	uint64 carried_accumulated = 0, accumulated;
 
+	/*
+	 * max is supposed to be 10000000000000000 but the compiler couldn't parse
+	 * high constants so i decided to compute it at runtime
+	 */
+	uint64 max = 100000000;
 
-    uint128 previous = 1;
-    uint128 current = 2;
-    uint128 accumulated;
+	max *= 100000000;
 
-    printf("1, 2");
-    for(int i = 3; i <= 98; i++)
-    {
-        accumulated = previous + current;
-        previous = current;
-        current = accumulated;
+	_putchar('1');
+	_putchar(',');
+	_putchar(' ');
+	_putchar('2');
 
-        if(i != 3)
-            printf(", ");
+	for (i = 3; i <= 98; i++)
+	{
+		carried_accumulated = carried_current + carried_previous;
+		accumulated = current + previous;
 
-        //printf("%ju",i,current);
-        print_uint128(current);
-    }
-    printf("\n");
+		carried_previous = carried_current;
+		previous = current;
 
-    return (0);
+		carried_current = carried_accumulated;
+		current = accumulated;
+
+		while (current >= max)
+		{
+			carried_current += 1;
+			current -= max;
+		}
+
+		if (i != 3)
+		{
+			_putchar(',');
+			_putchar(' ');
+		}
+		print_uint64(carried_current, max / 10, 0);
+		print_uint64(current, max / 10, carried_current > 0);
+	}
+	_putchar('\n');
+
+	return (0);
 }
 
 /**
- * putstr - writes a char array to stdout till it sees the null terminator: \0
- * @str: Pointer to the first array element
+ * print_uint64 - prints a 64 bit integer greater than 0
+ * @v: integer to print
+ * @radix: divisor to use
+ * @prepend_zeros: print insignificant zeros
  *
  * Return: void
  */
-void putstr(char *str)
+void print_uint64(uint64 v, uint64 radix, char prepend_zeros)
 {
-	while(*str != '\0')
-		putchar(*str++);
-}
+	uint64 divisor = radix;
+	uint64 quotient = v;
+	char significant_zero = 0;
 
-void print_uint128(uint128 v)
-{
-    uint128 divisor = 10000000000000000000 * 10;
-    uint128 quotient = v;
-    char significant_zero = 0
-    for(; divisor != 0; divisor /= 10)
-    {
-        char digit = quotient/divisor;
-        if(digit == 0 && !significant_zero)
-            continue;
-        significant_zero = 1;
+	for (; divisor != 0; divisor /= 10)
+	{
+		char digit = quotient / divisor;
 
-        putchar(digit + '0');
-        quotient = quotient % divisor;
-    }
+		if (digit == 0 && !significant_zero && !prepend_zeros)
+			continue;
+		significant_zero = 1;
+
+		_putchar(digit + '0');
+		quotient = quotient % divisor;
+	}
 }
