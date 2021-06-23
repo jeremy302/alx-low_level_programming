@@ -47,11 +47,9 @@ int main(void)
 			current -= max;
 		}
 
-		if (i != 3)
-		{
-			_putchar(',');
-			_putchar(' ');
-		}
+		_putchar(',');
+		_putchar(' ');
+
 		print_uint64(carried_current, max / 10, 0);
 		print_uint64(current, max / 10, carried_current > 0);
 	}
