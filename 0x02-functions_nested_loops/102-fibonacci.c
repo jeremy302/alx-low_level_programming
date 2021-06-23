@@ -1,12 +1,10 @@
-#include <stdlib.h>
 #include "holberton.h"
 #include <stdint.h>
-#include <stdio.h>
 
 typedef uint64_t uint64;
 
 uint64 fib(int x);
-void print_int64(uint64 v);
+void print_uint64(uint64 v);
 
 
 /**

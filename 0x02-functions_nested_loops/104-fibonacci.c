@@ -1,6 +1,5 @@
 #include <inttypes.h>
 #include "holberton.h"
-#include <stdio.h>
 
 typedef uint64_t uint64;
 void print_uint64(uint64 v, uint64 radix, char prepend_zeroes);
