@@ -3,10 +3,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-uint64_t fib(int x);
-void print_int64(uint64_t v);
-
 typedef uint64_t uint64;
+
+uint64 fib(int x);
+void print_int64(uint64 v);
+
 
 /**
  * main - starting point of the program
@@ -19,7 +20,7 @@ int main(void)
 
 	for (i = 1; i <= 50; i++)
 	{
-		print_int64(fib(i));
+		print_uint64(fib(i));
 		if (i != 50)
 		{
 			_putchar(',');
@@ -40,7 +41,7 @@ int main(void)
 uint64 fib(int x)
 {
 	int i;
-	uint64_t previous = 1, current = 2, accumulated;
+	uint64 previous = 1, current = 2, accumulated;
 
 	if (x <= 2)
 		return (x);
