@@ -2,7 +2,7 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * main - starting point of the program
  *
  * Return: void
  */
@@ -15,11 +15,13 @@ int main(void)
 		char fizz = i % 3 == 0;
 		char buzz = i % 5 == 0;
 
-		if (i != 1) printf(" ");
+		if (i != 1)
+			printf(" ");
 
 		if (fizz || buzz)
-			printf(fizz && buzz? "FizzBuzz" : fizz ? "Fizz" : "Buzz");
-		else printf("%d", i);
+			printf(fizz && buzz ? "FizzBuzz" : fizz ? "Fizz" : "Buzz");
+		else
+			printf("%d", i);
 	}
 	printf("\n");
 

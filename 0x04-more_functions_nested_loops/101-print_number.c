@@ -1,7 +1,8 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * print_number - prints n to stdout
+ * @n: integer to print
  *
  * Return: void
  */
@@ -16,7 +17,7 @@ void print_number(int n)
 	for (divisor = 1000000000; divisor != 0; divisor /= 10)
 	{
 		digit = n / divisor;
-		digit = digit < 0? -digit : digit;
+		digit = digit < 0 ? -digit : digit;
 		n %= divisor;
 
 		if (!digit && !significant_zero && divisor != 1)

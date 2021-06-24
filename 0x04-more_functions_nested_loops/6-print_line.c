@@ -1,7 +1,8 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * print_line - prints an underscore: '_', n times
+ * @n: the width of the line
  *
  * Return: void
  */

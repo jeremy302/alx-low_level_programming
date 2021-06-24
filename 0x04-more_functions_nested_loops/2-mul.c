@@ -1,11 +1,13 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * mul - returns the product of a and b
+ * @a: first argument
+ * @b: second argument
  *
- * Return: void
+ * Return: the product of a and b
  */
 int mul(int a, int b)
 {
-	return a * b;
+	return (a * b);
 }

@@ -1,22 +1,25 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * more_numbers - prints 0 to 14, 10 times
  *
  * Return: void
  */
 void more_numbers(void)
 {
-	char i, first_digit, last_digit;
-	
-	for (i = 0; i <= 14; i++)
-	{
-		first_digit = i / 10;
-		last_digit = i % 10;
+	char i, j, first_digit, last_digit;
 
-		if (first_digit)
-			_putchar(first_digit + '0');
-		_putchar(last_digit + '0');
+	for (int i = 0; i < 10; i++)
+	{
+		for (j = 0; j <= 14; j++)
+		{
+			first_digit = j / 10;
+			last_digit = j % 10;
+
+			if (first_digit)
+				_putchar(first_digit + '0');
+			_putchar(last_digit + '0');
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }

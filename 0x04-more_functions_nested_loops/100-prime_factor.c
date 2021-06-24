@@ -2,7 +2,7 @@
 #include <stdint.h>
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * main - starting point of the program
  *
  * Return: void
  */
@@ -12,7 +12,7 @@ int main(void)
 	unsigned long prime_factor = 2;
 
 	to_factor = to_factor * 1000 + 143;
-	
+
 	if (to_factor % 3 == 0)
 	{
 		to_factor = to_factor / 3;
@@ -20,13 +20,13 @@ int main(void)
 	}
 	while (to_factor != 1)
 	{
-		while(to_factor % prime_factor != 0)
+		while (to_factor % prime_factor != 0)
 		{
 			prime_factor += 2;
 		}
 		to_factor /= prime_factor;
 	}
-	printf("%lu\n",prime_factor);
+	printf("%lu\n", prime_factor);
 
 	return (0);
 }

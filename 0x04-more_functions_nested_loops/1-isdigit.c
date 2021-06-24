@@ -1,9 +1,10 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - prints the lowercase alphabet
+ * _isdigit - returns 1 if c is a digit, else 0
+ * @c: the character to check
  *
- * Return: void
+ * Return: 1 or 0
  */
 int _isdigit(int c)
 {
