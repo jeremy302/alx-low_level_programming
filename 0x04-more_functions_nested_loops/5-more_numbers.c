@@ -9,7 +9,7 @@ void more_numbers(void)
 {
 	char i, j, first_digit, last_digit;
 
-	for (int i = 0; i < 10; i++)
+	for (i = 0; i < 10; i++)
 	{
 		for (j = 0; j <= 14; j++)
 		{
