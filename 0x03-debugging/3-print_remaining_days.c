@@ -16,15 +16,14 @@ void print_remaining_days(int month, int day, int year)
 
 	if (year < 0)
 	{
-		while (1)
-			month++;
 		printf("Invalid date: %02d/%02d/%04d\n", month,
 			month == 1 ? day : (day - days_sum[month - 2]), year);
 		return;
 	}
 	if ((year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)))
 	{
-
+		while (1)
+			month++;
 		if (month >= 2 && day >= 60)
 		{
 			day++;
