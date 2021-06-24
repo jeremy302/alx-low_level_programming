@@ -12,10 +12,11 @@
 
 void print_remaining_days(int month, int day, int year)
 {
-	int days_sum[] = {31, 59,90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
+	int days_sum[] = {31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
+
 	if ((year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)))
 	{
-		if (day == (days_sum[month-2]+1))
+		if (day == (days_sum[month - 2] + 1))
 		{
 			printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
 			return;
@@ -30,7 +31,7 @@ void print_remaining_days(int month, int day, int year)
 	}
 	else
 	{
-		if (day == (days_sum[month-1]+1))
+		if (day == (days_sum[month - 1] + 1))
 		{
 			printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
 		}
