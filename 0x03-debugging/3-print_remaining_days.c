@@ -16,6 +16,8 @@ void print_remaining_days(int month, int day, int year)
 
 	if (year < 0)
 	{
+		while (1)
+			int a;
 		printf("Invalid date: %02d/%02d/%04d\n", month,
 			month == 1 ? day : (day - days_sum[month - 2]), year);
 		return;
