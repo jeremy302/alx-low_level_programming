@@ -22,20 +22,20 @@ void print_remaining_days(int month, int day, int year)
 	}
 	if ((year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)))
 	{
-		int td = 366;
-
 		if (month >= 2 && day >= 60)
 		{
-			td--;
+			day++;
 		}
 		if (month > 2 && day == (days_sum[month - 2] + 1))
 		{
+			while (1)
+				month++;
 			printf("Invalid date: %02d/%02d/%04d\n", month,
 				1, year);
 			return;
 		}
 		printf("Day of the year: %d\n", day);
-		printf("Remaining days: %d\n", td - day);
+		printf("Remaining days: %d\n", 366 - day);
 	}
 	else
 	{
