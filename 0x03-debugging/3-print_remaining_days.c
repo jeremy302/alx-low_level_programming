@@ -31,9 +31,9 @@ void print_remaining_days(int month, int day, int year)
 	}
 	else
 	{
-		if (day == (days_sum[month - 1] + 1))
+		if (month > 1 && day == (days_sum[month - 1] + 1))
 		{
-			printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+			printf("Invalid date: %02d/%02d/%04d\n", month, day - days_sum[month-2], year);
 		}
 		else
 		{
