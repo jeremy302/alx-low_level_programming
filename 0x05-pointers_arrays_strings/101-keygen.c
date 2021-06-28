@@ -16,7 +16,7 @@ int main(void)
 	srand(time(NULL));
 	for (i = 0; sum > 200; i++)
 	{
-		random_number = (rand() + 1) % sizeof(candidates);
+		random_number = (rand() + 1) % (sizeof(candidates) - 1);
 		choice = candidates[random_number];
 		putchar(choice);
 		sum -= choice;
