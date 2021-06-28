@@ -30,6 +30,7 @@ int main(void)
 	else
 		password[i++] = sum;
 
+	password[i] = '\0';
 	printf("%s", password);
 
 	return (0);
