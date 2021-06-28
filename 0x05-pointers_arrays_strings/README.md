@@ -1,4 +1,4 @@
-# Project 0x05 - 0x05. C - Pointers, arrays and strings
+# Project 0x05 C - Pointers, arrays and strings
 
 ### Scripts Descriptions
 
