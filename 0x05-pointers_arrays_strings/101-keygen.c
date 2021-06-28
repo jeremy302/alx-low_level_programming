@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	char choice, password[100], candidates[] =
+	char choice, candidates[] =
 		"abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-.";
 	int i, random_number, sum = 2772;
 
@@ -18,20 +18,16 @@ int main(void)
 	{
 		random_number = (rand() + 1) % sizeof(candidates);
 		choice = candidates[random_number];
-		password[i] = choice;
+		putchar(choice);
 		sum -= choice;
 	}
 
 	if (sum > 122)
 	{
-		password[i++] = sum / 2;
-		password[i++] = sum % 2 ? sum / 2 + 1 : sum / 2;
+	    putchar(sum / 2);
+		putchar(sum % 2 ? sum / 2 + 1 : sum / 2);
 	}
 	else
-		password[i++] = sum;
-	password[i++] = '\n';
-	password[i] = '\0';
-	printf("%s", password);
-
+		putchar(sum);
 	return (0);
 }
