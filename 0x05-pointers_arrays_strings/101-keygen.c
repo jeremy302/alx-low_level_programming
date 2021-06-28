@@ -11,17 +11,16 @@ int main(void)
 {
 	char choice, candidates[] =
 		"abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-.";
-	int i, random_number, sum = 2772;
+	int i, rand_num, sum = 2772;
 
 	srand(time(NULL));
 	for (i = 0; sum > 200; i++)
 	{
-		random_number = (rand() + 1) % (sizeof(candidates) - 1);
-		choice = candidates[random_number];
+		rand_num = rand() % (sizeof(candidates) - 1);
+		choice = candidates[rand_num];
 		putchar(choice);
 		sum -= choice;
 	}
-
 	if (sum > 122)
 	{
 	    putchar(sum / 2);
@@ -29,5 +28,6 @@ int main(void)
 	}
 	else
 		putchar(sum);
+
 	return (0);
 }
