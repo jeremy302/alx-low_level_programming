@@ -25,7 +25,7 @@ int main(void)
 	if (sum > 122)
 	{
 	    putchar(sum / 2);
-		putchar(sum % 2 ? sum / 2 + 1 : sum / 2);
+		putchar((sum / 2) + (sum % 2));
 	}
 	else
 		putchar(sum);
