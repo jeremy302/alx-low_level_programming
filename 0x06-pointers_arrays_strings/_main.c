@@ -53,7 +53,7 @@ int main()
 	puts("Testing 101");
 	print_number(INT_MIN);
 	putchar(' ');
-	print_number(INT_MAX);
+	print_number(0);
 	printf("\n");
 
 	puts("Testing 103");
