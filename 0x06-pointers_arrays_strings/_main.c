@@ -15,7 +15,7 @@ int main()
 	char str3[100] = "Hello the_r;e";
 	char sleet[100] = "Hello leet";
 	char srot[100] = "aBc,. .,xYz";
-	char r[100];
+	char r[1000];
 	char buffer[]="This is a string!\0And this is the rest of the #buffer :)\1\2\3\4\5\6\7#cisfun\n\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x20\x21\x34\x56#pointersarefun #infernumisfun\n";
 	
 	int iarr[5] = {1, 3, 5, 7, 9};
@@ -55,11 +55,12 @@ int main()
 	putchar(' ');
 	print_number(0);
 	printf("\n");
-
-	puts("Testing 103");
-	infinite_add("1234567891011121314151617181920", "1234567891011121314151617181920",r,sizeof(r));
-	printf("1234567891011121314151617181920 + 1234567891011121314151617181920 = |%s|\n",r);
-
+	{
+		char n1[] = "9999999", n2[]="1";
+		puts("Testing 103");
+		infinite_add(n1, n2,r,sizeof(r));
+		printf(" %s + %s = |%s|\n", n1, n2, r);
+	}
 	puts("Testing 104");
 	print_buffer(buffer,sizeof(buffer));
 	

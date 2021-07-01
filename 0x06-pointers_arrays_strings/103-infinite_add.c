@@ -11,7 +11,7 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	register char rev_tmp, *r_tmp = r, carry = 0, n1_t, n2_t, n_sum;
+	register char rev_tmp, *r_tmp = r, carry = 0, n1_t, n2_t, n_sum, n1_d, n2_d;
 	register int i, len, n1_len = 0, n2_len = 0;
 
 	while (n1_t = *n1 != 0, n2_t = *n2 != 0, n1 += n1_t, n2 += n2_t, n1_t + n2_t)
@@ -19,12 +19,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	len = n1_len > n2_len ? n1_len : n2_len;
 	if (size_r < len)
 		return (0);
-	while (n1_len > 0 && n2_len  > 0)
+	while (n1_len > 0 || n2_len  > 0)
 	{
-		char n1_digit = (n1_len-- > 0 ? *--n1 : 0) - '0';
-		char n2_digit = (n2_len-- > 0 ? *--n2 : 0) - '0';
-
-		n_sum = n1_digit + n2_digit + carry;
+		n1_d = n1_len-- > 0 ? *--n1 - '0' : 0;
+		n2_d = n2_len-- > 0 ? *--n2 - '0' : 0;
+		n_sum = n1_d + n2_d + carry;
 		*r++ = (n_sum % 10) + '0';
 		carry = n_sum / 10;
 	}
