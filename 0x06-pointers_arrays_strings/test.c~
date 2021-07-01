@@ -2,8 +2,9 @@
 
 int main()
 {
-	int a[5] = {3=6};
-	printf("a[3]: %d",a[3]);
-
+	char i=5,j=7;
+	1,j=2;
+	while(i--,j--)
+    printf("i: %d; j: %d",i,j);
 	return 0;
 }
