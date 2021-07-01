@@ -8,11 +8,13 @@
  */
 char *rot13(char *s)
 {
-	char *s_tmp = s,
-		mapping[256] = { ['A' ... 'Z'] = 'A', ['a' ... 'z'] = 'a' };
+	char *s_tmp = s, anchor;
 
 	for (; *s; s++)
-		if (mapping[*s])
-			*s = (((*s - mapping[*s]) + 13) % 26) + mapping[*s];
+	{
+		anchor = (*s >= 'A' && *s <= 'Z') * 'A' + (*s >= 'a' && *s <= 'z') * 'a';
+		if (anchor)
+			*s = (((*s - anchor) + 13) % 26) + anchor;
+	}
 	return (s_tmp);
 }

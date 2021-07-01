@@ -17,7 +17,7 @@ void print_buffer(char *b, int size)
 		putchar('\n');
 	for (; size > 0; size -= 10, b += 10)
 	{
-		printf("%08x:", b - b_tmp);
+		printf("%08x:", (unsigned int)(b - b_tmp));
 		for (i = 0; i < 10; i++)
 		{
 			if (i % 2 == 0)

@@ -8,13 +8,13 @@
  */
 char *leet(char *s)
 {
-	char *s_tmp = s,
-		map[256] = { ['A'] = '4', ['a'] = '4', ['E'] = '3',
-		['e'] = '3', ['O'] = '0', ['o'] = '0', ['T'] = '7',
-		['t'] = '7', ['L'] = '1', ['l'] = '1' };
+	char *s_tmp = s, htable[256], *map = "A4a4E3e3O0o0T7t7L1l1";
+
+	for (; *map; map += 2)
+		htable[(int)*map] = map[1];
 
 	for (; *s; s++)
-		*s = map[*s] ? map[*s] : *s;
+		*s = htable[(int)*s] ? htable[(int)*s] : *s;
 
 	return (s_tmp);
 }
