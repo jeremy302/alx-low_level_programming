@@ -51,12 +51,12 @@ int main()
 	printf("|%s|\n",rot13(srot));
 
 	puts("Testing 101");
-	print_number(INT_MIN);
+	print_number(-21234);
 	putchar(' ');
 	print_number(0);
 	printf("\n");
 	{
-		char n1[] = "9999999", n2[]="1";
+		char n1[] = "9999999999999999999", n2[]="1";
 		puts("Testing 103");
 		infinite_add(n1, n2,r,sizeof(r));
 		printf(" %s + %s = |%s|\n", n1, n2, r);
