@@ -1,4 +1,4 @@
-# Project 0x06. C - More pointers, arrays and strings
+# Project 0x07. C - Even more pointers, arrays and strings
 
 ### Scripts Descriptions
 
