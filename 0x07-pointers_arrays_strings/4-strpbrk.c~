@@ -1,0 +1,19 @@
+#include "holberton.h"
+
+/**
+ * 
+ * @
+ * @
+ *
+ * Return: 
+ */
+char *_strpbrk(char *s, char *accept)
+{
+	char index[256] = {0};
+
+	while (*accept)
+		index[(int)*accept++] = 1;
+	while (*s && !index[(int)*s])
+		++s;
+	return *s ? *s : 0;
+}

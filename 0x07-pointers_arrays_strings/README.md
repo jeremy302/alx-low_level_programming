@@ -1,0 +1,17 @@
+# Project 0x06. C - More pointers, arrays and strings
+
+### Scripts Descriptions
+
+1. **0-strcat.c** - concatenates 2 strings
+2. **1-strncat.c** - concatenates a maximum of n chars to the first string
+3. **2-strncpy.c** - copies a string to another
+4. **3-strcmp.c** - returns the difference of the first non-matching character
+5. **4-rev_array.c** - reverses an array
+6. **5-string_toupper.c** - makes a string uppercase
+7. **6-cap_string.c** - capitalizes the first letter of each word in a string
+8. **7-leet.c** - replaces some letters with their digit look-alikes
+9. **100-rot13.c** - shifts each letter by 13 places
+10. **101-print_number.c** - prints an integer
+11. **102-magic.c** - prints an alternate string and returns
+12. **103-infinite_add.c** - adds 2 string numbers
+13. **104-print_buffer.c** - prints a hex view of a buffer
