@@ -2,16 +2,13 @@
 
 ### Scripts Descriptions
 
-1. **0-strcat.c** - concatenates 2 strings
-2. **1-strncat.c** - concatenates a maximum of n chars to the first string
-3. **2-strncpy.c** - copies a string to another
-4. **3-strcmp.c** - returns the difference of the first non-matching character
-5. **4-rev_array.c** - reverses an array
-6. **5-string_toupper.c** - makes a string uppercase
-7. **6-cap_string.c** - capitalizes the first letter of each word in a string
-8. **7-leet.c** - replaces some letters with their digit look-alikes
-9. **100-rot13.c** - shifts each letter by 13 places
-10. **101-print_number.c** - prints an integer
-11. **102-magic.c** - prints an alternate string and returns
-12. **103-infinite_add.c** - adds 2 string numbers
-13. **104-print_buffer.c** - prints a hex view of a buffer
+1. **0-memset.c** - fills a block of memory with a byte
+2. **1-memcpy.c** - copies a block of memory to another address
+3. **2-strchr.c** - returns a substring starting from `c`
+4. **3-strspn.c** - returns the number of the bytes in `accept` that `s` starts with
+5. **4-strpbrk.c** - returns the leading bytes of `s`, that are in `accept`
+6. **5-strstr.c** - returns a substring starting with `needle`
+7. **7-print_chessboard.c** - prints a chessboard
+8. **8-print_diagsums.c** - prints the sum of the diagonals of a square matrix
+9. **100-set_string.c** - changes the address a pointer to a string points to
+10. **101-crackme_password** - password of ./crackme2
