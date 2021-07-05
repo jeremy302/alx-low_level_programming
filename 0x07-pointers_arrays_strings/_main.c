@@ -30,6 +30,8 @@ int main(void)
         {100, 1012451, 11102, 12545, 214543435},
         {10, 12401, 10452, 11542545, 1214543435},
     };
+	char *s2 = "Bob Dylan";
+    char *s3 = "Robert Allen";
 	
 	printf("Testing 0\n");
 	_memset(buf, 'b', 20);
@@ -62,5 +64,10 @@ int main(void)
 	print_diagsums((int *)c5,5);
 
 	printf("\nTesting 8\n");
+	set_string (&s3, s2);
+	printf("s1: |%s|  s2: |%s|",s2,s3);
+
+	printf("\nTesting 9\n");
+	
 	return (0);
 }
