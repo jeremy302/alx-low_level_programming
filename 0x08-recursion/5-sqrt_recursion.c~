@@ -1,0 +1,27 @@
+#include "holberton.h"
+
+#include "holberton.h"
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+int root_check(int x, int y)
+{
+	int product = x * x;
+
+	return (product == y  ? x : product > y ? -1 : root_check(x + 1, y));
+}
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+int _sqrt_recursion(int n)
+{
+	return (root_check (0, n));
+}

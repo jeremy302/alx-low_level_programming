@@ -1,0 +1,36 @@
+#include "holberton.h"
+
+#include "holberton.h"
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+int _strlen(char *s)
+{
+	return (*s ? 1 + _strlen(s + 1) : 0);
+}
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+int palindrome_check (char *s, int len)
+{
+	return (len <= 1 || *s == s[len =1] && palindrome_check(s + 1, len - 2));
+}
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+int is_palindrome(char *s)
+{
+	return palindrome_check(s, _strlen(s));
+}
