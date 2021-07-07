@@ -20,7 +20,7 @@ int _strlen(char *s)
  */
 int palindrome_check(char *s, int len)
 {
-	return (len <= 1 || *s == s[len - 1] && palindrome_check(s + 1, len - 2));
+	return (len <= 1 || (*s == s[len - 1] && palindrome_check(s + 1, len - 2)));
 }
 
 /**
