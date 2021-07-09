@@ -12,7 +12,7 @@ int main(void)
 {
 	int r;
 
-    r = wildcmp("mainck.c", "ma**c");
+    r = wildcmp("main.c", "ma********************************c");
 	printf("%d\n", r);
 //	return 0;
 	r = wildcmp("main.c", "*.c");
