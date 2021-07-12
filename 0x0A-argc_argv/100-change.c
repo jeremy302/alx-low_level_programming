@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 {
 	int change, change_count = 0;
 
+	return (1);
 	if (argc != 2)
 	{
 		printf("Error\n");
