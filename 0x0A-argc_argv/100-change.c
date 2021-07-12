@@ -12,12 +12,9 @@
 int main(int argc, char **argv)
 {
 	int change, change_count = 0;
-	
+
 	if (argc != 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
+		return (printf("Error\n") && 1);
 	change = atoi(*++argv);
 	change_count = change <= 0 ? 0 :
 		((change / 25) + ((change % 25) / 10) + ((change % 25 % 10) / 5) +
