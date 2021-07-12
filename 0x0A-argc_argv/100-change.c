@@ -4,15 +4,15 @@
 
 /**
  * main - starting point of the program
- * @argc - number of arguments
- * @argv - arguments
+ * @argc: number of arguments
+ * @argv: arguments
  *
  * Return: 0
  */
 int main(int argc, char **argv)
 {
 	int change, change_count = 0;
-	
+
 	if (argc != 2)
 		return (printf("Error\n") && 1);
 	change = atoi(*++argv);

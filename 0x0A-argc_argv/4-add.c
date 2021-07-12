@@ -4,8 +4,8 @@
 
 /**
  * main - starting point of the program
- * @argc - number of arguments
- * @argv - arguments
+ * @argc: number of arguments
+ * @argv: arguments
  *
  * Return: 0
  */
