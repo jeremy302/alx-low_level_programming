@@ -12,7 +12,7 @@
 int main(int argc, char **argv)
 {
 	int sum = 0, argc_tmp = --argc;
-	char *argv_tmp = *++argv;
+	char *argv_tmp = argc ? *++argv : "";
 
 	for (; *argv_tmp || ((argc_tmp -= !*argv_tmp) > 0); argv_tmp++)
 		if (*argv_tmp && (*argv_tmp < '0' || *argv_tmp > '9'))
