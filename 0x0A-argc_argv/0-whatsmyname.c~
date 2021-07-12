@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include "holberton.h"
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+int main(int argc, char **argv)
+{
+	printf("%s\n",*argc);
+	return 0;
+}
