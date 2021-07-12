@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 	}
 	change = atoi(*++argv);
 	change_count = change <= 0 ? 0 :
-		((change / 25) + ((change % 25) / 10) + ((change % 10) / 5) +
-		 ((change % 5) / 2) + ((change % 2) * (change % 5 != 0)));
+		((change / 25) + ((change % 25) / 10) + ((change % 25 % 10) / 5) +
+		 ((change % 25 % 10 % 5) / 2) + (change % 25 % 10 % 5 % 2));
 	printf("%d\n", change_count);
 
 	return (0);
