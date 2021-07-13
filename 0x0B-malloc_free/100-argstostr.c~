@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include "holberton.h"
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+char *argstostr(int ac, char **av)
+{
+	int len = 0, i = 0, ac_tmp = ac;
+	char *str = NULL, str_tmp = NULL;
+
+	if (!ac-- || av == NULL)
+		return (NULL);
+	while (ac -= av[ac][i] == '\0', ac >= 0)
+		if (av[ac][i])
+			++i, ++len;
+		else
+			i = 0;
+	i = 0, str = malloc(sizeof(char) * (len + 1)), str_tmp = str;
+	if (str)
+	{
+		while (ac_tmp -= av[ac][i] == '\0', ac_tmp >= 0)
+			if (av[ac][i])
+				(*str++ = av[ac][i++]), i++;
+			else
+				i = 0;
+		*str = '\0';
+	}
+	return (str_tmp);
+}

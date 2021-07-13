@@ -1,0 +1,20 @@
+#include <stdlib.h>
+#include "holberton.h"
+
+/**
+ * strtow - splits str by whitespaces
+ * @str: string to split
+ *
+ * Return: an array of the splitted string
+ */
+char **strtow(char *str)
+{
+	int len = 0;
+
+	while (str[len])
+		++len;
+	{
+		char buf[len];
+	}
+	return NULL;
+}

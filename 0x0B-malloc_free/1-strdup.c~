@@ -1,0 +1,22 @@
+#include <stdlib.h>
+#include "holberton.h"
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+char *_strdup(char *str)
+{
+	int len = 0;
+	char *str_ptr = NULL;
+
+	while (str[len])
+		len++;
+	str_ptr = malloc(len + 1);
+	if (str_ptr)
+		while (len--)
+			str_ptr[len] = str[len];
+	return (str_ptr);
+}
