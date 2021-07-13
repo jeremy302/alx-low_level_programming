@@ -9,27 +9,22 @@
  */
 char **strtow(char *str)
 {
-	int len = 0, words_len = 0, ns = 0, block_len, old_len;
-	char **words, **words_tmp, *buf, s, *str_tmp = str, *buf_tmp;
-	void *block;
+	int len = 0, words_len = 0, spaces_len = 0, block_len;
+	char **words, **words_tmp, *buf, s, *str_tmp = str;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (; (s = str[len]); len++)
+	for (; (s = str[len]); len++, spaces_len += s == ' ')
 		(words_len += (!len && str[0] != ' ') ||
-		 (s == ' ' && (str[len + 1] != ' ' && str[len + 1]))),
-			ns += s == ' ';
+		 (s == ' ' && (str[len + 1] != ' ' && str[len + 1])));
 	if (words_len == 0)
 		return (NULL);
 	block_len = (sizeof(char *) * (words_len + 1)) +
-		(sizeof(char) * (len + words_len - ns));
-	block = malloc(block_len);
-	old_len = (sizeof(char *) * (words_len + 1)) +
-		(sizeof(char) * (len + words_len + 1));
-	if (block == NULL)
+		(sizeof(char) * (len + words_len - spaces_len));
+	words = malloc(block_len), words_tmp = words;
+	if (words == NULL)
 		return (NULL);
-	words = block, words_tmp = words;
-	buf = (char *)(words + words_len + 1), buf_tmp = buf;
+	buf = (char *)(words + words_len + 1);
 	for (*words++ = buf; (s = *str); ++str)
 	{
 		if (s == ' ')
@@ -40,7 +35,6 @@ char **strtow(char *str)
 		else
 			*buf++ = s;
 	}
-	(*buf = '\0'), *words = NULL;
-	(void) buf_tmp,	(void) old_len;
+	*buf = '\0', *words = NULL;
 	return (words_tmp);
 }
