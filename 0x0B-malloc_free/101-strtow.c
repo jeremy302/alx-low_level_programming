@@ -16,7 +16,7 @@ char **strtow(char *str)
 		return (NULL);
 	for (; (s = str[len]); ++len)
 		(words_len += (!len && str[0] != ' ') ||
-		 (s == ' ' && (str[len + 1] != ' ' && !str[len + 1])));
+		 (s == ' ' && (str[len + 1] != ' ' && str[len + 1])));
 	words = malloc(sizeof(char *) * (words_len + 1)), words_tmp = words;
 	buf = malloc(sizeof(char) * (len + words_len + 1));
 	if (words == NULL || buf == NULL)
