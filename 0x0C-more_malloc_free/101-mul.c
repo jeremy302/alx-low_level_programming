@@ -2,7 +2,7 @@
 #include "holberton.h"
 
 /**
- * puts - prints a string to the standard output
+ * _puts - prints a string to the standard output
  * @str: a string
  *
  * Return: 0
