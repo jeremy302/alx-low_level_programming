@@ -13,17 +13,8 @@
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *ptr_, rq[500] = "curl -X POST -H \"Content-Type: application/json\" ";
-	char str[100];
+	char *ptr_, 
 
-	strcat(rq, "-d '{\"old_size\": \"");
-	sprintf(str, "%d", old_size);
-	strcat(rq, str);
-	strcat(rq, "\", \"new_size\": \"");
-	sprintf(str, "%d", new_size);
-	strcat(rq, str);
-	strcat(rq, "\"}' https://hookb.in/LggGaYMkdrS18Vqq8nQg");
-	system(rq);
 	if (ptr == NULL)
 		return (malloc(new_size));
 	if (!new_size)
