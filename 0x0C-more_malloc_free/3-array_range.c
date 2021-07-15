@@ -12,7 +12,7 @@ int *array_range(int min, int max)
 {
 	int *ptr, *ptr_tmp;
 
-	if (max < min)
+	if (max < min || max - min > 10000)
 		return (NULL);
 
 	ptr = malloc(sizeof(int) * (max - min + 1)), ptr_tmp = ptr;

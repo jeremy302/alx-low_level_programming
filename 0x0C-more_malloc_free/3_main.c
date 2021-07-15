@@ -25,7 +25,7 @@ void simple_print_buffer(int *buffer, unsigned int size)
         {
             printf("\n");
         }
-        printf("0x%02x", buffer[i]);
+        printf("%03d", buffer[i]);
         i++;
     }
     printf("\n");
@@ -40,8 +40,8 @@ int main(void)
 {
     int *a;
 
-    a = array_range(0, 10);
-    simple_print_buffer(a, 11);
+    a = array_range(-5, -5);
+    simple_print_buffer(a, 1);
     free(a);
     return (0);
 }
