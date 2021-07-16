@@ -61,5 +61,6 @@ int main(int argc, char **argv)
 		if (res[i] || sig0 || i == len_r - 1)
 			_putchar(res[i] + '0');
 	_putchar('\n');
+	free(res);
 	return (0);
 }

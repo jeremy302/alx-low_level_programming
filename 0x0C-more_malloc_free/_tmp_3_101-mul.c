@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 	len_tmp = len_1, s_tmp = s1;
 	if (len_2 > len_1)
 		s1 = s2, s2 = s_tmp, len_1 = len_2, len_2 = len_tmp;
-	for (i = len_2 - 1; i >= 0; i--, res[i] += carry, carry = (i != len - 1) * 0)
+	for (i = len_2 - 1; i >= 0; i--, res[i] += carry, carry = 0)
 	{
 		for (j = len_1 - 1; j >= 0; j--)
 		{
