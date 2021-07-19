@@ -1,0 +1,18 @@
+
+#ifndef DOG_HEADER
+#define DOG_HEADER
+
+/**
+ * 
+ * @
+ *
+ * Return: 
+ */
+struct dog
+{
+	char *name;
+	float age;
+	char *owner;
+};
+
+#endif

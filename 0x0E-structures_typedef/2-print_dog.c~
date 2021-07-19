@@ -1,0 +1,11 @@
+#include "dog.h"
+#include <stdio.h>
+
+void print_dog(struct dog *d)
+{
+	char *name = d->name == NULL ? "(nil)" : d->name;
+	char *owner = d->owner == NULL ? "(nil)" : d->owner;
+	
+	if (d != NULL)
+		printf("%s\n%f\n%s", name, d->age, owner);
+}
