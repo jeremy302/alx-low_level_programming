@@ -25,7 +25,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 				   ((owner != NULL) * (owner_len + 1)));
 	if (block == NULL)
 		return (NULL);
-	dog = (dog_t *)block, block += dog_size;
+	dog = (dog_t *)block;
+	block += dog_size;
 	dog->age = age;
 	dog->name = name == NULL ? NULL : block;
 	dog->owner = owner == NULL ? NULL : block + (name != NULL) * (name_len + 1);
