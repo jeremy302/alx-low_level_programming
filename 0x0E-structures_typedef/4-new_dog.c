@@ -33,9 +33,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog->age = age;
 	dog->name = name == NULL ? NULL : block;
 	dog->owner = owner == NULL ? NULL : block + (name != NULL) * name_len + 1;
-	while (name != NULL && (*block++ = *name++))
+	while (name != NULL && *name && (*block++ = *name++))
 		continue;
-	while (owner != NULL && (*block++ = *owner++))
+	while (owner != NULL && *owner && (*block++ = *owner++))
 		continue;
 	return (dog);
 }
