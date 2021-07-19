@@ -12,28 +12,39 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	unsigned int name_len = 0, owner_len = 0, dog_size = sizeof(dog_t);
-	char *block;
+	char *name_, *owner_;
 	dog_t *dog;
 
-	if (name == NULL || age <= 0 || owner == NULL || !*name || !*owner)
+	dog = malloc(dog_size);
+	if (dog == NULL)
 		return (NULL);
-	while (name != NULL && name[name_len])
+	while (name[name_len])
 		name_len++;
-	while (owner != NULL && owner[owner_len])
-		owner_len++;
-	block = malloc(dog_size + ((name != NULL) * (name_len + 1)) +
-				   ((owner != NULL) * (owner_len + 1)));
-	if (block == NULL)
+	name_ = malloc(name_len + 1);
+	if (name_ == NULL)
+	{
+		free(dog);
 		return (NULL);
-	dog = (dog_t *)block;
-	block += dog_size;
+	}
+	while (owner[owner_len])
+		owner_len++;
+	owner_ = malloc(owner_len + 1);
+	if (owner_ == NULL)
+	{
+		free(name_);
+		free(dog);
+		return (NULL);
+	}
+	dog->name = name_;
+	dog->owner = owner_;
 	dog->age = age;
-	dog->name = name == NULL ? NULL : block;
-	dog->owner = owner == NULL ? NULL : block + (name != NULL) * (name_len + 1);
-	while (name != NULL && (*block++ = *name++))
-		continue;
-	while (owner != NULL && (*block++ = *owner++))
-		continue;
+
+	while (*name)
+		*name_++ = *name++;
+	while (*owner)
+		*owner_++ = *owner++;
+	*name_ = '\0';
+	*owner_ = '\0';
 	return (dog);
 }
 
