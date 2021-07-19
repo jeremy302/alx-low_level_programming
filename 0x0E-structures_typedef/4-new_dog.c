@@ -32,10 +32,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog = (dog_t *)block, block += dog_size;
 	dog->age = age;
 	dog->name = name == NULL ? NULL : block;
-	dog->owner = owner == NULL ? NULL : block + (name != NULL) * name_len + 1;
-	while (name != NULL && *name && (*block++ = *name++))
+	dog->owner = owner == NULL ? NULL : block + (name != NULL) * (name_len + 1);
+	while (name != NULL && (*block++ = *name++))
 		continue;
-	while (owner != NULL && *owner && (*block++ = *owner++))
+	while (owner != NULL && (*block++ = *owner++))
 		continue;
 	return (dog);
 }
