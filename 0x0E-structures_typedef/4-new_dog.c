@@ -12,7 +12,7 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	unsigned int name_len = 0, owner_len = 0, dog_size = sizeof(dog_t);
-	void *block;
+	char *block;
 	dog_t *dog;
 
 	while (name != NULL && name[name_len])
@@ -27,9 +27,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog->age = age;
 	dog->name = name == NULL ? NULL : block;
 	dog->owner = owner == NULL ? NULL : block + (name != NULL) * name_len + 1;
-	while (name != NULL && (*(char *)block++ = *name++))
+	while (name != NULL && (*block++ = *name++))
 		continue;
-	while (owner != NULL && (*(char *)block++ = *owner++))
+	while (owner != NULL && (*block++ = *owner++))
 		continue;
 	return (dog);
 }
