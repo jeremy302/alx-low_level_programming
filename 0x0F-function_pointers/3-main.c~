@@ -1,0 +1,16 @@
+
+
+/**
+ * main - applies a mathematical operation on 2 numbers
+ * @argc: agument count
+ * @argv: arguments
+ *
+ * Return: 0 if successful, else 98
+ */
+int main(int argc, char *argv[])
+{
+    if (argc != 4)
+		return (printf("Error\n"), 98);
+	
+    return (0);
+}
