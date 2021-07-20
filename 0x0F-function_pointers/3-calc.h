@@ -6,7 +6,7 @@
 #endif
 
 /**
- * struct op - Struct op
+ * struct Operation - Struct op
  *
  * @op: The operator
  * @f: The function associated

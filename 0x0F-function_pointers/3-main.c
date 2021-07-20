@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	int arg_1, arg_2, (*func)(int, int);
 	char *op;
 
-    if (argc != 4)
+	if (argc != 4)
 		return (printf("Error\n"), 98);
 
 	arg_1 = atoi(argv[1]), op = argv[2], arg_2 = atoi(argv[3]);
@@ -24,5 +24,5 @@ int main(int argc, char *argv[])
 	if (func == NULL)
 		return (printf("Error\n"), 99);
 	printf("%d\n", func(arg_1, arg_2));
-    return (0);
+	return (0);
 }
