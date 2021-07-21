@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		return (printf("Error\n"), 98);
 
 	arg_1 = atoi(argv[1]), op = argv[2], arg_2 = atoi(argv[3]);
-	if ((*op == '/' || *op == '/') && arg_2 == 0)
+	if ((*op == '/' || *op == '%') && arg_2 == 0)
 		return (printf("Error\n"), 100);
 	func = get_op_func(op);
 	if (func == NULL)

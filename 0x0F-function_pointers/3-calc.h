@@ -1,12 +1,12 @@
-#ifndef CALC_HEADER
-#define CALC_HEADER
+#ifndef CALC_H
+#define CALC_H
 
 #ifndef NULL
 #define NULL ((void *)0)
 #endif
 
 /**
- * struct Operation - Struct op
+ * struct op - Struct op
  *
  * @op: The operator
  * @f: The function associated
