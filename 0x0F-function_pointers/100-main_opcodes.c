@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - prints a variable number of bytes starting from where `main` is at
+ * @argc: number of arguments
+ * @argv: arguments
+ *
+ * Return: 0 if successful
+ */
 int main(int argc, char *argv[])
 {
 	int len, i = 0;
