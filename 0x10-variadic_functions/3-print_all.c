@@ -2,6 +2,12 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * print_all - prints all it's argument b the given format
+ * @format: type of corresponding argument
+ *
+ * Return: void
+ */
 void print_all(const char * const format, ...)
 {
 	va_list args;

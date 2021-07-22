@@ -2,6 +2,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+ * print_numbers - prints all it's arguments, separated by `separator`
+ * @separator: string to separate arguments with
+ * @n: arguments count
+ *
+ * Return: void
+ */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
