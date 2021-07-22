@@ -38,9 +38,11 @@ void print_all(const char * const format, ...)
 			continue;
 		}
 		if (format[++i] == '\0')
+		{
 			printf("\n");
-		else
-			printf(", ");
+			continue;
+		}
+		printf(", ");
 	}
 	va_end(args);
 }
