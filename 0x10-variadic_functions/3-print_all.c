@@ -13,6 +13,7 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int i = 0;
 	char *str;
+	char trailing_separator = 0;
 
 	va_start(args, format);
 	while (format != NULL && format[i])
@@ -33,12 +34,13 @@ void print_all(const char * const format, ...)
 			printf("%s", str == NULL ? "(nil)" : str);
 			break;
 		default:
-			if (format[++i] == '\0')
+			if (format[++i] == '\0' && trailing_separator)
 				printf("\b\b");
 			continue;
 		}
 		if (format[++i] != '\0')
 			printf(", ");
+		trailing_separator = 1;
 	}
 	printf("\n");
 	va_end(args);
