@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include "lists.h"
+
+size_t print_list(const list_t *h)
+{
+	size_t len;
+
+	for (len = 0; h != NULL; h = h->next, len++)
+		printf("%s", h->str == NULL ? "[0] nil\n" : h->str);
+	return (len);
+}

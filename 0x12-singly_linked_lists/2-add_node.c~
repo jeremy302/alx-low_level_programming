@@ -1,0 +1,16 @@
+#include "lists.h"
+#include <string.h>
+
+list_t *add_node(list_t **head, const char *str)
+{
+	char *nstr = strdup(str);
+	list_t *item = malloc(sizeof(list_t));
+
+	if (str == NULL || nstr == NULL || item == NULL)
+		return (free(nstr), free(item), NULL);
+	item->str = nstr, item->len = 0,
+		item->next = head == NULL ? NULL : *head;
+	for (; *str; str++)
+		item->len++;
+	return (item);
+}

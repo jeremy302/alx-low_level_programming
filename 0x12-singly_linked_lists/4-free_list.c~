@@ -1,0 +1,10 @@
+#include "lists.h"
+#include <stdlib.h>
+
+void free_list(list_t *head)
+{
+	list_t *next;
+
+	for (; head != NULL; head = head->next)
+		free(head->str), next = head->next, free(head), head = next;
+}
