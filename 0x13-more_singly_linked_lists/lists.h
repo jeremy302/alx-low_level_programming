@@ -38,5 +38,5 @@ void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size);
 void print_uint(unsigned long num, unsigned int base);
 void print_int(long num, unsigned int base);
 void put_str(char *str);
-
+#include <stdio.h>
 #endif /* LISTS_H */

@@ -86,7 +86,9 @@ size_t print_listint_safe(const listint_t *head)
 	listint_t **index = malloc(sizeof(listint_t) * index_size);
 
 	if (head == NULL)
-		return (0);
+		return (free(index), 0);
+	if (index == NULL)
+		return (free(index), 98);
 	while (head != NULL)
 	{
 		for (i = 0; i < len; ++i)
@@ -108,5 +110,6 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 	}
 exit:
+	free(index);
 	return (len);
 }
