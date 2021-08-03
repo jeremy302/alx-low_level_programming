@@ -20,8 +20,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (current == NULL)
 		return (-1);
 	if (prev == NULL)
-		n = current == NULL ? -1 : current->n, free(current), *head = next;
+		n = current == NULL ? -1 : 1, free(current), *head = next;
 	else
-		n = current->n, free(current), prev->next = next;
+		n = 1, free(current), prev->next = next;
 	return (n);
 }
