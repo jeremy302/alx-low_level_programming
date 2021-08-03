@@ -39,7 +39,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
  */
 void print_uint(unsigned long num, unsigned int base)
 {
-	uint div = num / base, rem = num % base;
+	unsigned long div = num / base, rem = num % base;
 
 	if (div == 0)
 		_putchar(rem + '0' + ('a' - '9' - 1) * (rem > 9));
