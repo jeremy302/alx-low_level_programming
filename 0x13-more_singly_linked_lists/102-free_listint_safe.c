@@ -44,7 +44,9 @@ size_t free_listint_safe(listint_t **h)
 		*head = *h, *head_tmp = NULL;
 
 	if (h == NULL || head == NULL)
-		return (0);
+		return (free(index), 0);
+	if (index == NULL)
+		exit(98);
 	while (head != NULL)
 	{
 		for (i = 0; i < len; ++i)
@@ -63,5 +65,6 @@ size_t free_listint_safe(listint_t **h)
 	}
 exit:
 	*h = NULL;
+	free(index);
 	return (len);
 }
