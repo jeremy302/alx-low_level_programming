@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * _realloc - reallocates the block at `ptr` to a block of size: `new_size`
+ * _realloc2 - reallocates the block at `ptr` to a block of size: `new_size`
  * @ptr: old block
  * @old_size: size of ptr
  * @new_size: size of new block
