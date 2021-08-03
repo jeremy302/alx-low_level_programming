@@ -92,11 +92,11 @@ size_t print_listint_safe(const listint_t *head)
 		for (i = 0; i < len; ++i)
 			if (index[i] == head)
 			{
-				put_str("-> ["), print_uint((unsigned long) head, 16), put_str("] ");
+				put_str("-> [0x"), print_uint((unsigned long) head, 16), put_str("] ");
 				print_int(head->n, 10), put_str("\n");
 				goto exit;
 			}
-		put_str("["), print_uint((unsigned long) head, 16), put_str("] ");
+		put_str("[0x"), print_uint((unsigned long) head, 16), put_str("] ");
 		print_int(head->n, 10), put_str("\n");
 		len++;
 		if (len == index_size)

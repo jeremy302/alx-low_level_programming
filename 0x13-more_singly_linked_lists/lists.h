@@ -34,6 +34,7 @@ size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size);
 void print_uint(unsigned long num, unsigned int base);
 void print_int(long num, unsigned int base);
 void put_str(char *str);

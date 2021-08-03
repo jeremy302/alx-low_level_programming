@@ -9,7 +9,7 @@
  *
  * Return: new block
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *ptr_;
 	unsigned int i = 0;
@@ -52,7 +52,7 @@ size_t free_listint_safe(listint_t **h)
 				goto exit;
 		len++;
 		if (len == index_size)
-			index = _realloc(index, sizeof(listint_t) * index_size,
+			index = _realloc2(index, sizeof(listint_t) * index_size,
 							 sizeof(listint_t) * (index_size + 10)), index_size += 10;
 		if (index == NULL)
 			exit(98);
