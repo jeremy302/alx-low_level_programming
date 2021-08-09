@@ -190,7 +190,7 @@ void print_elf64_header_2(Elf64_Ehdr *h)
 	printf("\n");
 
 	printf("  Entry point address:               ");
-	printf("0x%lx", (long)(int)header.e_entry);
+	printf("0x%lx", (long)header.e_entry);
 	printf("\n");
 }
 
