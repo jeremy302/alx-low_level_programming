@@ -26,9 +26,9 @@ void put_err(char *str)
  *
  * Return: void
  */
-void print_elf_header(Elf64_Ehdr *h)
+void print_elf_header(Elf32_Ehdr *h)
 {
-	Elf64_Ehdr header = *h;
+	Elf32_Ehdr header = *h;
 	char c, i;
 
 	printf("ELF Header:\n");
@@ -66,9 +66,9 @@ void print_elf_header(Elf64_Ehdr *h)
  *
  * Return: void
  */
-void print_elf_header_2(Elf64_Ehdr *h)
+void print_elf_header_2(Elf32_Ehdr *h)
 {
-	Elf64_Ehdr header = *h;
+	Elf32_Ehdr header = *h;
 	char c;
 	uint16_t t2;
 
@@ -117,10 +117,10 @@ int main(int argc, char *argv[])
 {
 	char *filename;
 	int handle, read_len;
-	Elf64_Ehdr header;
+	Elf32_Ehdr header;
 
 	if (argc != 2)
-		return (put_err("Usage: elf_header file\n"), 98);
+		return (put_err("Usage: elf_header elf_filename\n"), 98);
 	filename = argv[1];
 
 	handle = open(filename, O_RDONLY);
