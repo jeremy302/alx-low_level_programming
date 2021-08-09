@@ -218,7 +218,7 @@ void print_elf64_header_2(Elf64_Ehdr *h)
 		   : t2 == ET_HIPROC ? "Processor Specific: (ffff)"
 		   : "<unknown>: %x", t2), printf("\n");
 	printf("  Entry point address:               ");
-	ensure_endianness(header.e_ident[EI_DATA] == ELFDATA2LSB, &header.e_entry, 4);
+	ensure_endianness(header.e_ident[EI_DATA] == ELFDATA2LSB, &header.e_entry, 8);
 	printf("0x%lx", header.e_entry), printf("\n");
 }
 
