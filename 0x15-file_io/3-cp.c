@@ -25,16 +25,15 @@ int main(int argc, char *argv[])
 			return (0);
 
 	src_handle = open(src_name, O_RDONLY);
-	dst_handle = open(dst_name, O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	if (src_handle == -1)
 read_error:
 		return (dprintf(STDERR_FILENO,
 					 "Error: Can't read from file %s\n", src_name), 98);
+	dst_handle = open(dst_name, O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	if (dst_handle == -1)
 write_error:
 		return (dprintf(STDERR_FILENO,
 					 "Error: Can't write to %s\n", dst_name), 99);
-	printf("started\n");
 	do {
 		read_len = read(src_handle, buf, BUFFER_SIZE);
 		if (read_len == -1)
