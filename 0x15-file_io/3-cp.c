@@ -12,15 +12,16 @@
  */
 int main(int argc, char *argv[])
 {
-	char *buf[BUFFER_SIZE], *src_name, *dst_name;
+	char buf[BUFFER_SIZE], *src_name, *dst_name;
 	int src_handle, dst_handle, read_len, write_len, src_ex, dst_ex,
 		src_name_len = 0, dst_name_len = 0;
 
 	if (argc != 3)
 		return (dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), 97);
 	src_name = argv[1], dst_name = argv[2];
-	while (src_name[src_name_len++] == dst_name[dst_name_len++])
-		if (src_name[src_name_len - 1] == '\0')
+	for (; src_name[src_name_len] == dst_name[dst_name_len] &&
+			 src_name[src_name_len] != '\0'; src_name_len++, dst_name_len++)
+		if (src_name[src_name_len] == '\0')
 			return (0);
 
 	src_handle = open(src_name, O_RDONLY);
