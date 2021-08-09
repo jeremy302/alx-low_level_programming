@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		src_name_len = 0, dst_name_len = 0;
 
 	if (argc != 3)
-		return (dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n"), 97);
+		return (dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), 97);
 	src_name = argv[1], dst_name = argv[2];
 	while (src_name[src_name_len++] == dst_name[dst_name_len++])
 		if (src_name[src_name_len - 1] == '\0')
@@ -27,11 +27,11 @@ int main(int argc, char *argv[])
 	dst_handle = open(dst_name, O_WRONLY | O_CREAT | O_TRUNC, 00664);
 	if (src_handle == -1)
 read_error:
-		return (dprintf(STDOUT_FILENO,
+		return (dprintf(STDERR_FILENO,
 					 "Error: Can't read from file %s\n", src_name), 98);
 	if (dst_handle == -1)
 write_error:
-		return (dprintf(STDOUT_FILENO,
+		return (dprintf(STDERR_FILENO,
 					 "Error: Can't write to %s\n", dst_name), 99);
 	printf("started\n");
 	do {
@@ -45,8 +45,8 @@ write_error:
 
 	src_ex = close(src_handle), dst_ex = close(dst_handle);
 	if (src_ex == -1)
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", src_handle);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src_handle);
 	if (dst_ex == -1)
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", dst_handle);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dst_handle);
 	return (src_ex == -1 || dst_ex == -1 ? 100 : 0);
 }
