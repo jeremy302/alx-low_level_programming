@@ -7,6 +7,29 @@
 #define HEADER_DIFF (sizeof(Elf64_Ehdr) - sizeof(Elf32_Ehdr))
 
 /**
+ * ensure_endianness - ensures endianness
+ * @little_e: whether data is little endian
+ * @data: data to ensure
+ * @len: lenth of data
+ *
+ * Return: void
+ */
+void ensure_endianness(char little_e, void *data, unsigned int len)
+{
+	unsigned long num = 1, i = 0;
+	char _little_e = ((num >> 8) << 8 != num), tmp, *_data = data;
+
+	if (little_e != _little_e)
+	{
+		for (i = 0; i < len - 1; i++)
+		{
+			tmp = _data[i];
+			_data[i] = _data[len - i];
+			_data[len - i] = tmp;
+		}
+	}
+}
+/**
  * put_err - prints a string to the standard error file
  * @str: string to print
  *
@@ -85,24 +108,26 @@ void print_elf32_header_2(Elf32_Ehdr *h)
 		   : c == ELFOSABI_TRU64 ? "UNIX - TRU64"
 		   : c == ELFOSABI_ARM ? "UNIX - ARM architecture"
 		   : c == (char)ELFOSABI_STANDALONE ? "Stand-alone (embedded)"
-		   : "<unknown: %x>", c);
-	printf("\n");
-
+		   : "<unknown: %x>", c), printf("\n");
 	printf("  ABI Version:                       ");
 	c = header.e_ident[EI_ABIVERSION];
 	printf("%d", c);
 	printf("\n");
-
 	printf("  Type:                              ");
 	t2 = header.e_type;
+	ensure_endianness(header.e_ident[EI_DATA] == ELFDATA2LSB, &t2, 2);
 	printf(t2 == ET_NONE ? "NONE (None)" :
 		   t2 == ET_REL ? "REL (Relocatable file)"
 		   : t2 == ET_EXEC ? "EXEC (Executable file)"
 		   : t2 == ET_DYN ? "DYN (Shared object file)"
 		   : t2 == ET_CORE ? "CORE (Core file)"
-		   : "<unknown>: %x", t2);
-	printf("\n");
+		   : t2 == ET_LOOS ? "OS Specific: (fe00)"
+		   : t2 == ET_HIOS ? "OS Specific: (feff)"
+		   : t2 == ET_LOPROC ? "Processor Specific: (ff00)"
+		   : t2 == ET_HIPROC ? "Processor Specific: (ffff)"
+		   : "<unknown>: %x", t2), printf("\n");
 
+	ensure_endianness(header.e_ident[EI_DATA] == ELFDATA2LSB, &header.e_entry, 4);
 	printf("  Entry point address:               ");
 	printf("0x%x", header.e_entry), printf("\n");
 }
@@ -181,17 +206,20 @@ void print_elf64_header_2(Elf64_Ehdr *h)
 
 	printf("  Type:                              ");
 	t2 = header.e_type;
+	ensure_endianness(header.e_ident[EI_DATA] == ELFDATA2LSB, &t2, 2);
 	printf(t2 == ET_NONE ? "NONE (None)" :
 		   t2 == ET_REL ? "REL (Relocatable file)"
 		   : t2 == ET_EXEC ? "EXEC (Executable file)"
 		   : t2 == ET_DYN ? "DYN (Shared object file)"
 		   : t2 == ET_CORE ? "CORE (Core file)"
-		   : "<unknown>: %x", t2);
-	printf("\n");
-
+		   : t2 == ET_LOOS ? "OS Specific: (fe00)"
+		   : t2 == ET_HIOS ? "OS Specific: (feff)"
+		   : t2 == ET_LOPROC ? "Processor Specific: (ff00)"
+		   : t2 == ET_HIPROC ? "Processor Specific: (ffff)"
+		   : "<unknown>: %x", t2), printf("\n");
 	printf("  Entry point address:               ");
-	printf("0x%lx", (long)header.e_entry);
-	printf("\n");
+	ensure_endianness(header.e_ident[EI_DATA] == ELFDATA2LSB, &header.e_entry, 4);
+	printf("0x%lx", header.e_entry), printf("\n");
 }
 
 /**
