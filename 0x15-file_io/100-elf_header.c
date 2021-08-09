@@ -103,7 +103,7 @@ void print_elf_header_2(Elf32_Ehdr *h)
 	printf("\n");
 
 	printf("  Entry point address:               ");
-	printf("0x%lx", header.e_entry), printf("\n");
+	printf("0x%x", header.e_entry), printf("\n");
 }
 
 /**
