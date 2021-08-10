@@ -24,8 +24,8 @@ void ensure_endianness(char little_e, void *data, unsigned int len)
 		for (i = 0; i < len - 1; i++)
 		{
 			tmp = _data[i];
-			_data[i] = _data[len - i];
-			_data[len - i] = tmp;
+			_data[i] = _data[len - i - 1];
+			_data[len - i - 1] = tmp;
 		}
 	}
 }
@@ -53,7 +53,7 @@ void put_err(char *str)
 void print_elf32_header(Elf32_Ehdr *h)
 {
 	Elf32_Ehdr header = *h;
-	char c, i;
+	unsigned char c, i;
 
 	printf("ELF Header:\n");
 	printf("  Magic:  ");
@@ -93,7 +93,7 @@ void print_elf32_header(Elf32_Ehdr *h)
 void print_elf32_header_2(Elf32_Ehdr *h)
 {
 	Elf32_Ehdr header = *h;
-	char c;
+	unsigned char c;
 	uint16_t t2;
 
 	printf("  OS/ABI:                            ");
@@ -107,7 +107,6 @@ void print_elf32_header_2(Elf32_Ehdr *h)
 		   : c == ELFOSABI_FREEBSD ? "UNIX - FreeBSD"
 		   : c == ELFOSABI_TRU64 ? "UNIX - TRU64"
 		   : c == ELFOSABI_ARM ? "UNIX - ARM architecture"
-		   : c == (char)ELFOSABI_STANDALONE ? "Stand-alone (embedded)"
 		   : "<unknown: %x>", c), printf("\n");
 	printf("  ABI Version:                       ");
 	c = header.e_ident[EI_ABIVERSION];
@@ -141,7 +140,7 @@ void print_elf32_header_2(Elf32_Ehdr *h)
 void print_elf64_header(Elf64_Ehdr *h)
 {
 	Elf64_Ehdr header = *h;
-	char c, i;
+	unsigned char c, i;
 
 	printf("ELF Header:\n");
 	printf("  Magic:  ");
@@ -181,11 +180,11 @@ void print_elf64_header(Elf64_Ehdr *h)
 void print_elf64_header_2(Elf64_Ehdr *h)
 {
 	Elf64_Ehdr header = *h;
-	char c;
+	unsigned char c;
 	uint16_t t2;
 
 	printf("  OS/ABI:                            ");
-	c = header.e_ident[EI_OSABI];
+	c = (unsigned char)header.e_ident[EI_OSABI];
 	printf(c == ELFOSABI_NONE || c == ELFOSABI_SYSV ? "UNIX - System V"
 		   : c == ELFOSABI_HPUX ? "UNIX - HP-UX"
 		   : c == ELFOSABI_NETBSD ? "UNIX - NetBSD"
@@ -195,8 +194,7 @@ void print_elf64_header_2(Elf64_Ehdr *h)
 		   : c == ELFOSABI_FREEBSD ? "UNIX - FreeBSD"
 		   : c == ELFOSABI_TRU64 ? "UNIX - TRU64"
 		   : c == ELFOSABI_ARM ? "UNIX - ARM architecture"
-		   : c == (char)ELFOSABI_STANDALONE ? "Stand-alone (embedded)"
-		   : "<unknown: %x>", c);
+		   : "<unknown: %x>", header.e_ident[EI_OSABI]);
 	printf("\n");
 
 	printf("  ABI Version:                       ");
