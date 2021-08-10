@@ -74,7 +74,8 @@ void print_elf_header(void *h)
 
 	printf("  Version:                           ");
 	c = header->e_ident[EI_VERSION];
-	printf(c == EV_CURRENT ? "%d (current)" : c == 1 ? "1" : "%d <unknown>", c);
+	printf("%d%s", c, c == EV_CURRENT ? " (current)"
+		   : c > EV_CURRENT || c == EV_NONE ? " <unknown>" : "");
 	printf("\n");
 
 	print_elf_header_2(h);
