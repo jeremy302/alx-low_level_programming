@@ -21,7 +21,7 @@ void ensure_endianness(char little_e, void *data, unsigned int len)
 
 	if (little_e != _little_e)
 	{
-		for (i = 0; i < len - 1; i++)
+		for (i = 0; i < len / 2; i++)
 		{
 			tmp = _data[i];
 			_data[i] = _data[len - i - 1];
@@ -241,12 +241,13 @@ int main(int argc, char *argv[])
 	if (handle == -1)
 		return (put_err("readelf: Error: "), put_err(filename),
 				put_err(": Failed to read file's magic number\n"), 98);
-	read_len = read(handle, header, MIN_HEADER_SIZE);
+	read_len = read(handle, header, MIN_HEADER_SIZE + HEADER_DIFF);
 	if (read_len == -1)
-error_section:
 		return (put_err("readelf: Error: "), put_err(filename),
 				put_err(": Failed to read file's magic number\n"), 98);
-	if (read_len != MIN_HEADER_SIZE ||
+	if (read_len < (int)MIN_HEADER_SIZE ||
+		(header32->e_ident[EI_CLASS] == ELFCLASS64 &&
+		 read_len != MIN_HEADER_SIZE + HEADER_DIFF) ||
 		!((header32->e_ident[EI_MAG0] == ELFMAG0) &&
 		  (header32->e_ident[EI_MAG1] == ELFMAG1) &&
 		  (header32->e_ident[EI_MAG2] == ELFMAG2) &&
@@ -256,12 +257,6 @@ error_section:
 
 	if (header32->e_ident[EI_CLASS] == ELFCLASS64)
 	{
-		read_len = read(handle, ((char *)&header64) + MIN_HEADER_SIZE, HEADER_DIFF);
-		if (read_len == -1)
-		{
-			close(handle);
-			goto error_section;
-		}
 		print_elf64_header(header64);
 	}
 	else
