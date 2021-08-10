@@ -165,7 +165,7 @@ void print_elf64_header(Elf64_Ehdr *h)
 
 	printf("  Version:                           ");
 	c = header.e_ident[EI_VERSION];
-	printf(c == EV_CURRENT ? "1 (current)" : "%d <unknown>", c);
+	printf(c == EV_CURRENT ? "%d (current)" : c == 1 ? "1" : "%d <unknown>", c);
 	printf("\n");
 
 	print_elf64_header_2(h);
