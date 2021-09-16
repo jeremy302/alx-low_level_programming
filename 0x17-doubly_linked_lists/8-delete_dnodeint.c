@@ -1,5 +1,5 @@
 #include "lists.h"
-#include <stdio.h>
+
 /**
  * delete_dnodeint_at_index - deletes a node at an index in doubly-linked list
  * @head: head of the list
