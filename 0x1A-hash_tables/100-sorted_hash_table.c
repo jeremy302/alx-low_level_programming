@@ -11,8 +11,9 @@
  */
 shash_table_t *shash_table_create(unsigned long int size)
 {
-	shash_table_t *ht = calloc(1, sizeof(shash_table_t) +
-							   size * sizeof(shash_node_t *));
+	shash_table_t *ht = size == 0 ? NULL :
+		calloc(1, sizeof(shash_table_t) +
+			   size * sizeof(shash_node_t *));
 	if (ht != NULL)
 	{
 		ht->size = size;
@@ -109,6 +110,8 @@ void shash_table_print(const shash_table_t *ht)
 	char t = 0;
 	shash_node_t *node = NULL;
 
+	if (ht == NULL)
+		return;
 	printf("{");
 	if (ht != NULL)
 		for (node = ht->shead; node != NULL; node = node->snext)
