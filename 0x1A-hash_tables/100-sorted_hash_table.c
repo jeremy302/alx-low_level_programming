@@ -134,6 +134,8 @@ void shash_table_print_rev(const shash_table_t *ht)
 	char t = 0;
 	shash_node_t *node = NULL;
 
+	if (ht == NULL)
+		return;
 	printf("{");
 	if (ht != NULL)
 		for (node = ht->stail; node != NULL; node = node->sprev)
