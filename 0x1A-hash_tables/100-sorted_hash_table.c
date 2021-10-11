@@ -43,15 +43,16 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			free(cur->value);
 			cur->value = value ==  NULL ? NULL : strdup(value);
-			return (1);
+			return (cur->value == NULL && value != NULL ? 0 : 1);
 		}
 	node = calloc(1, sizeof(shash_node_t));
 	if (node == NULL)
 		return (0);
 	node->key = strdup(key), node->value =  value ==  NULL ? NULL : strdup(value);
+	if (node->key == NULL || (node->value == NULL && value != NULL))
+		return (free(node), free(node->key), free(node->value), 0);
 	node->next = ht->array[ind], ht->array[ind] = node;
 	for (cur = ht->shead; cur != NULL; prv = cur, cur = cur->snext)
-	{
 		if (strcmp(key, cur->key) < 0)
 		{
 			if (prv == NULL)
@@ -66,7 +67,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			}
 			return (1);
 		}
-	}
 	if (ht->shead == NULL)
 		ht->shead = node, ht->stail = node;
 	else
