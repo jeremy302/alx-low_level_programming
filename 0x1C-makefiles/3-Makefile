@@ -9,4 +9,4 @@ oclean:
 	-$(RM) (wildcard *.o)
 
 fclean:
-	-$(RM) (wildcard *~) (wilcard *.o)
+	-$(RM) (wildcard *~) (wildcard \#*\#) (wildcard .\#*) (wilcard *.o)
