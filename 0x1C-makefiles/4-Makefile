@@ -1,0 +1,13 @@
+all:
+	$(CC) $(CFLAGS) -c $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+
+
+clean:
+	-$(RM) (wildcard *~) (wildcard $(NAME))
+
+oclean:
+	-$(RM) (wildcard *.o)
+
+fclean:
+	-$(RM) (wildcard *~) (wilcard *.o)

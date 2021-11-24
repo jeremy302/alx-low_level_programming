@@ -1,0 +1,12 @@
+all: %.c
+	$(CC) -c $(OBJ)
+	$(CC) -o $(NAME) $(SRC)
+
+clean:
+	-$(RM) (wildcard *~) (wildcard $(NAME))
+
+oclean:
+	-$(RM) (wildcard *.o)
+
+fclean:
+	-$(RM) (wildcard *~) (wilcard *.o)
