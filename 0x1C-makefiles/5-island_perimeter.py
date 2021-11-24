@@ -15,7 +15,7 @@ def island_perimeter(grid):
                     cell_i and row[cell_i - 1],
                     cell_i + 1 != row_len and row[cell_i + 1],
                     # vertical
-                    row_i and  grid[row_i - 1][cell_i],
+                    row_i and grid[row_i - 1][cell_i],
                     row_i + 1 != grid_len and grid[row_i + 1][cell_i]
                 ]))
     return perimeter
