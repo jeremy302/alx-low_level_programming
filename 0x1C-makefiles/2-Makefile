@@ -4,6 +4,6 @@ OBJ = $(patsubst %.c,%.o,$(SRC))
 NAME = school
 
 all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+%.o: %.c
 	$(CC) -c $(SRC)
-$(OBJ): %.o: %.c
-	$(CC) -o $@ $<
