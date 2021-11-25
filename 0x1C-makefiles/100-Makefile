@@ -6,10 +6,8 @@ NAME = school
 CCC = $(CC)
 
 .PHONY: all
-all: $(OBJ)
-	$(CCC) $(OBJ) -o $(NAME)
-$(OBJ): %.o: %.c
-	$(CCC) $(CFLAGS) -c -o $@ $<
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
 re: oclean all
 
