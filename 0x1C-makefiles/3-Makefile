@@ -1,12 +1,13 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
-SRC = (wildcard *.c)
+SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c,%.o,$(SRC))
 NAME = school
 RM = rm
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o holberton
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
