@@ -1,13 +1,21 @@
-all:
-	$(CC) $(CFLAGS) -c $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+SRC = main.c school.c
+OBJ = $(patsubst %.c,%.o,$(SRC))
+NAME = school
+RM = rm
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
 
 
 clean:
-	-$(RM) (wildcard *~) (wildcard $(NAME))
+	-$(RM) *~ (wildcard $(NAME))
 
 oclean:
-	-$(RM) (wildcard *.o)
+	-$(RM) $(OBJ)
 
 fclean:
-	-$(RM) (wildcard *~) (wilcard *.o)
+	-$(RM) *~ $(OBJ)
