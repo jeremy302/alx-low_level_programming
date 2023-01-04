@@ -28,8 +28,8 @@ int advanced_binary(int *array, size_t size, int value)
 		hi = mid - 1;
 	else if (value > array[mid])
 		lo = mid + 1;
-	else if (mid && array[mid - 1] == value)
-		hi = mid;
+	/* else if (mid && array[mid - 1] == value) */
+	/* 	hi = mid; */
 	else
 		return (mid);
 
