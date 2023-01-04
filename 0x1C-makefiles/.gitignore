@@ -12,5 +12,3 @@ TAGS
 tags
 test*/
 *test/
-*.c
-*.h
