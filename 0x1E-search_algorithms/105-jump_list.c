@@ -12,7 +12,7 @@
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	unsigned int i, block = sqrt(size);
-	listint_t *lo = list, *hi = list;
+	listint_t *lo = list, *hi = list, _hi;
 
 	if (list == NULL || size == 0)
 		return (NULL);
@@ -20,10 +20,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	while (hi && hi->index < size && hi->n < value)
 	{
 		lo = hi;
-		for (i = 0; i < block && hi; i++)
-			hi = hi->next;
+		for (i = 0, _hi = hi; i < block && hi; i++)
+			_hi = hi->next ? hi->next : hi, hi = hi->next;
 		if (hi)
-			printf("Value checked at index [%lu] = [%d]\n", hi->index, hi->n);
+		printf("Value checked at index [%lu] = [%d]\n", _hi->index, _hi->n);
 	}
 	printf("Value found between indexes [%lu] and [%lu]\n",
 		   lo->index, hi ? hi->index : lo->index + i - 1);
